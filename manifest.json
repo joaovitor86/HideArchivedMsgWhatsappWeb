@@ -1,28 +1,32 @@
 {
-  "manifest_version": 2,
-  "name": "Alternar Visibilidade no WhatsApp Web",
-  "version": "1.1",
-  "description": "Alterna a visibilidade de um botão específico no WhatsApp Web.",
+  "manifest_version": 2,  // Especifica a versão do manifest. A versão 2 é amplamente utilizada para extensões no Chrome.
+  "name": "Alternar Visibilidade no WhatsApp Web",  // Nome da extensão que será exibido no navegador.
+  "version": "1.1",  // Versão atual da extensão.
+  "description": "Alterna a visibilidade de um botão específico no WhatsApp Web.",  // Descrição breve da funcionalidade da extensão.
+  
   "permissions": [
-    "activeTab"
+    "activeTab"  // Permissão necessária para acessar a aba ativa, para poder manipular o conteúdo da página do WhatsApp Web.
   ],
+
   "content_scripts": [
     {
-      "matches": ["https://web.whatsapp.com/*"],
-      "js": ["content.js"],
-      "run_at": "document_idle"
+      "matches": ["https://web.whatsapp.com/*"],  // Define que o script será injetado apenas nas páginas do WhatsApp Web.
+      "js": ["content.js"],  // Arquivo JavaScript que será injetado na página (content.js).
+      "run_at": "document_idle"  // Define o momento em que o script será executado. "document_idle" significa após o carregamento completo da página.
     }
   ],
+
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js"],  // O script do background é carregado ao iniciar a extensão.
+    "persistent": false  // Define que o background não será persistente (não ficará em execução o tempo todo). O script é executado conforme necessário.
   },
+
   "browser_action": {
-    "default_popup": "popup.html",
+    "default_popup": "popup.html",  // Define o arquivo HTML que será exibido quando o ícone da extensão for clicado.
     "default_icon": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
+      "16": "icon.png",  // Ícone da extensão, para o tamanho 16x16 px.
+      "48": "icon.png",  // Ícone da extensão, para o tamanho 48x48 px.
+      "128": "icon.png"  // Ícone da extensão, para o tamanho 128x128 px.
     }
   }
 }
